@@ -1,15 +1,9 @@
-human = [list(map(int, input().split())) for i in range(5)]
-humanScore = [0]*5
-score = 0
+scoreList=[list(map(int, input().split())) for i in range(5)]
+max_score=0
+index=0
 
-for i in range(5):
-    sum = 0
-    for j in range(4):
-        sum += human[i][j]
-    humanScore[i] = sum
-    score = max(score, sum)
-
-for i in range(5):
-    if humanScore[i] == score:
-        print(i+1,score)
-        break
+for i in range(len(scoreList)):
+    tmp=0
+    tmp=sum(scoreList[i])
+    if tmp > max_score:max_score=tmp;index=i+1
+print(f'{index} {max_score}')
